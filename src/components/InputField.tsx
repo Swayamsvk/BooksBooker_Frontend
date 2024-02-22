@@ -8,6 +8,8 @@ const InputField: FC<InputFieldProps> = ({
   onChangeText,
   value,
   extraStyles,
+  multiline,
+  numberOfLines,
 }) => {
   return (
     <View style={[styles.container, extraStyles]}>
@@ -15,6 +17,8 @@ const InputField: FC<InputFieldProps> = ({
         placeholder={placeholder}
         onChangeText={onChangeText}
         value={value}
+        multiline={multiline}
+        numberOfLines={numberOfLines}
       />
     </View>
   );

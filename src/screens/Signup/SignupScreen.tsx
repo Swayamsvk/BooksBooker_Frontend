@@ -1,12 +1,13 @@
 import React, {FC} from 'react';
 import {ImageBackground, View} from 'react-native';
-import {Button, InputField, Typography} from '../../components';
+import {InputField, Typography} from '../../components';
 import {SignUpScreenContext} from './cms';
 import {ColorCodes} from '../../ColorCodes';
 import {styles} from './Signup.styles';
 import {SignupScreenProps} from './SignupModel';
 import {Formik} from 'formik';
 import {Card} from './components';
+import {Button} from 'books-booker-button';
 
 const SignupScreen: FC<SignupScreenProps> = ({navigation}) => {
   return (

@@ -13,6 +13,8 @@ export interface InputFieldProps {
   onChangeText: (val: string) => void;
   value: string;
   extraStyles?: any;
+  multiline?: boolean;
+  numberOfLines?: number;
 }
 
 export interface ButtonProps {

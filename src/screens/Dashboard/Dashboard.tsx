@@ -4,12 +4,14 @@ import {Typography} from '../../components';
 import {styles} from './Dashboard.styles';
 import {useSelector} from 'react-redux';
 import {Card} from './components';
-import {RootState} from '../../RootState';
-import {BookListType} from './DashboardModel';
+import {BookListType, DashboardProps} from './DashboardModel';
+import {RootState} from '../../store';
 
-const Dashboard = () => {
+const Dashboard: FC<DashboardProps> = ({navigation}) => {
   const scrollY = useRef(new Animated.Value(0)).current;
-  const bookList = useSelector((state: RootState) => state.bookList);
+  const bookList = useSelector(
+    (state: RootState) => state.bookListReducer.bookList,
+  );
   const ITEM_SIZE = 100 + 3;
   const renderItem = ({item, index}: {item: BookListType; index: number}) => {
     const inputRange = [-1, 0, ITEM_SIZE * index, ITEM_SIZE * index + 2];
@@ -23,6 +25,7 @@ const Dashboard = () => {
         name={item.name}
         description={item.description}
         image={null}
+        onPress={() => navigation.navigate('BookDetailsScreen')}
       />
     );
   };
