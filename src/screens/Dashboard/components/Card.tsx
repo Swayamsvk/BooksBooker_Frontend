@@ -1,37 +1,52 @@
 import React, {FC} from 'react';
-import {Animated, Image, StyleSheet, View} from 'react-native';
+import {
+  Animated,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {ColorCodes} from '../../../ColorCodes';
 import {Typography} from '../../../components';
 import {CardProps} from '../DashboardModel';
 
-const Card: FC<CardProps> = ({image, name, extraStyle, scale, description}) => {
+const Card: FC<CardProps> = ({
+  image,
+  name,
+  extraStyle,
+  scale,
+  description,
+  onPress,
+}) => {
   return (
-    <Animated.View style={[styles.container]}>
-      <View style={styles.leftBorder} />
-      <View style={styles.subContainer}>
-        <Image
-          source={require('../../../assets/images/dashboard/book.png')}
-          style={{width: 50, height: 50}}
-        />
-        <View style={styles.descriptionContainer}>
-          <Typography
-            fontFamily="Inter"
-            fontSize={20}
-            fontColor={ColorCodes.primary}
-            fontWeight={700}>
-            {name}
-          </Typography>
-          <Typography
-            extraStyle={styles.descriptionMargin}
-            fontFamily="Inter"
-            fontSize={15}
-            fontColor={ColorCodes.secondary}
-            fontWeight={500}>
-            {description}
-          </Typography>
+    <TouchableOpacity onPress={onPress}>
+      <Animated.View style={[styles.container]}>
+        <View style={styles.leftBorder} />
+        <View style={styles.subContainer}>
+          <Image
+            source={require('../../../assets/images/dashboard/book.png')}
+            style={{width: 50, height: 50}}
+          />
+          <View style={styles.descriptionContainer}>
+            <Typography
+              fontFamily="Inter"
+              fontSize={20}
+              fontColor={ColorCodes.primary}
+              fontWeight={700}>
+              {name}
+            </Typography>
+            <Typography
+              extraStyle={styles.descriptionMargin}
+              fontFamily="Inter"
+              fontSize={15}
+              fontColor={ColorCodes.secondary}
+              fontWeight={500}>
+              {description}
+            </Typography>
+          </View>
         </View>
-      </View>
-    </Animated.View>
+      </Animated.View>
+    </TouchableOpacity>
   );
 };
 
